@@ -22,3 +22,5 @@ Imports:
     mvnfast,
     stats,
     utils
+URL: https://github.com/aaron-lohmann/SVARnarrsign
+BugReports: https://github.com/aaron-lohmann/SVARnarrsign/issues
