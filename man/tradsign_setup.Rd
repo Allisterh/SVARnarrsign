@@ -33,7 +33,3 @@ A list which contains restrictions hoirzons and shock names
 This function sets up the traditional sign restrictions. Notice that
 these restrictions can even be more than 1 for each structural shock.
 }
-\examples{
-
-
-}

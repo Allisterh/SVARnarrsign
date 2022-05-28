@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: This package mainly does two things. First of all it lets the used fully identify a SVAR model with sign restrictions. Secondly 
             one can also employ narrative sign restrictions of SVAR models.
-License: MIT + file LICENSE
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -24,3 +24,9 @@ Imports:
     utils
 URL: https://github.com/aaron-lohmann/SVARnarrsign
 BugReports: https://github.com/aaron-lohmann/SVARnarrsign/issues
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3

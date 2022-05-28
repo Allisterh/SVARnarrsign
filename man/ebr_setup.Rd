@@ -31,7 +31,3 @@ should hold}
 \description{
 This function sets up the elasticity bound restrictions.
 }
-\examples{
-
-
-}

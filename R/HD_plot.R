@@ -1,4 +1,4 @@
-#' Plot historical decomposition for a specific date 
+#' Plot historical decomposition for a specific date
 #'
 #' @param narrSign_model A model object of class narrsign
 #' @param whichShock A string with the name of shock to be plotted
@@ -9,7 +9,7 @@
 #'
 #' @examples
 HD_plot <- function(narrSign_model = NULL,
-                       whichShock = NULL,
-                       date = NULL){
-  
+                    whichShock = NULL,
+                    date = NULL) {
+
 }

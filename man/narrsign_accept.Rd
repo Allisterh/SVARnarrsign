@@ -28,6 +28,3 @@ Checks narrative restrictions and reweights them accordingly.
 \details{
 Will in the long run change this such that this all comes from the model
 }
-\examples{
-
-}

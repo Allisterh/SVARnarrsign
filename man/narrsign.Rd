@@ -44,7 +44,3 @@ A list with otuputs
 \description{
 Estimate a SVAR model with narrative restrictions
 }
-\examples{
-
-
-}

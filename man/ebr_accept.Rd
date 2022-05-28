@@ -19,6 +19,3 @@ A Boolean whether elasticity bounds are fulfilled
 \description{
 Check whether elasticity bounds hold
 }
-\examples{
-
-}

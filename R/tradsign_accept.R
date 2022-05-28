@@ -23,34 +23,34 @@ tradsign_accept <-
            signshocks,
            cum) {
     Q_out <- Q
-    
+
     Q <- Q[, signshocks, drop = FALSE]
-    
-    
+
+
     constrained <- constrained[!is.na(constrained)]
-    
+
     for (k in first:last) {
-      ik <- impulses[k, ,] %*% Q
-      
+      ik <- impulses[k, , ] %*% Q
+
       # some variabels are understood as cumlative
-      iks <- array(NA, dim = c(k,1,ncol(Q_out)))
-      for (l in 1:k){
-        iks[l,,] <- impulses[l,,]%*%Q
+      iks <- array(NA, dim = c(k, 1, ncol(Q_out)))
+      for (l in 1:k) {
+        iks[l, , ] <- impulses[l, , ] %*% Q
       }
-      
-      for (i in 1:length(cum)){
-        if (cum[i] == 1){
-          ik[i,] <- sum(iks[,,i])
+
+      for (i in 1:length(cum)) {
+        if (cum[i] == 1) {
+          ik[i, ] <- sum(iks[, , i])
         }
       }
-      
-      
-      
-      
+
+
+
+
       for (i in 1:length(constrained)) {
         if (constrained[i] < 0) {
           value <- ik[-1.0 * constrained[i]]
-        } else{
+        } else {
           value <- -1.0 * ik[constrained[i]]
         }
         #
@@ -60,11 +60,13 @@ tradsign_accept <-
             ik <- 1.0 * ik
             Q_out <- 1.0 * Q_out
           } # comment this one out and uncomment bracket below.
-        } else{
+        } else {
           acc <- 0
-          rwz <- list(Q = Q_out,
-                      acc = acc,
-                      ika = ik)
+          rwz <- list(
+            Q = Q_out,
+            acc = acc,
+            ika = ik
+          )
           return(rwz)
           # } # comment out this
         }

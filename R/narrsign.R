@@ -7,55 +7,57 @@
 #'  restrictions should be considered
 #' @param nkeep Amount of draws to keep for the traditional sign restrictions
 #' @param draws Amount of draws to make for parameter and covariance matrix
-#' @param subdraws Amount of subdraws for orhogotnal matrix Q for each 
+#' @param subdraws Amount of subdraws for orhogotnal matrix Q for each
 #' parameter matrix and covariance matrix
-#' @param elasticitybounds An object as output from ebr_setup. NULL if no elasticity 
+#' @param elasticitybounds An object as output from ebr_setup. NULL if no elasticity
 #' bound should be considered
 #'
 #' @return A list with otuputs
 #' @export
 #'
 #' @examples
-#' 
-#' 
-narrsign <- function(
-  data = NULL,
-  lags = 12,
-  trad_signs = NULL,
-  narr_restr = NULL,
-  nkeep = 1000,
-  draws = 300,
-  subdraws = 300,
-  elasticitybounds = NULL,
-  const = TRUE,
-  steps = 30,
-  narrweightdraws = 1000){
-  
-  trad_m <- tradsign_estim(Y=data,
-                           nlags = lags,
-                           draws = draws,
-                           subdraws = subdraws,
-                           tradsign_setup = trad_signs,
-                           constant = const,
-                           steps = steps,
-                           EBR = elasticitybounds,
-                           nkeep = nkeep)
+narrsign <- function(data = NULL,
+                     lags = 12,
+                     trad_signs = NULL,
+                     narr_restr = NULL,
+                     nkeep = 1000,
+                     draws = 300,
+                     subdraws = 300,
+                     elasticitybounds = NULL,
+                     const = TRUE,
+                     steps = 30,
+                     narrweightdraws = 1000) {
+  trad_m <- tradsign_estim(
+    Y = data,
+    nlags = lags,
+    draws = draws,
+    subdraws = subdraws,
+    tradsign_setup = trad_signs,
+    constant = const,
+    steps = steps,
+    EBR = elasticitybounds,
+    nkeep = nkeep
+  )
 
-  if (!is.null(narr_restr)){
+  if (!is.null(narr_restr)) {
     # always removing the last entry as this is returned as NA for some reaosn
     # have not yet figured out why
-    narr_m <- narrsign_accept(narrative_restr = narr_restr,
-                              irfs = trad_m$IRFS[1:(dim(trad_m$IRFS)[1]-1),,,],
-                              shocks = trad_m$SHOCKS[1:(dim(trad_m$IRFS)[1]-1),,],
-                              fevds = trad_m$FEVDS[1:(dim(trad_m$IRFS)[1]-1),,,],
-                              ndrawweights = narrweightdraws,
-                              data = data,
-                              lag = lags)
+    narr_m <- narrsign_accept(
+      narrative_restr = narr_restr,
+      irfs = trad_m$IRFS[1:(dim(trad_m$IRFS)[1] - 1), , , ],
+      shocks = trad_m$SHOCKS[1:(dim(trad_m$IRFS)[1] - 1), , ],
+      fevds = trad_m$FEVDS[1:(dim(trad_m$IRFS)[1] - 1), , , ],
+      ndrawweights = narrweightdraws,
+      data = data,
+      lag = lags
+    )
   }
-  
-  ret <- list(trad = trad_m, narr = narr_m, trad_restrict = trad_signs, narr_restrict = narr_restr,
-              elasticity_bounds = elasticitybounds, savednarrative = dim(narr_m$IRFS)[1],data = data,
-              varnames = colnames(data), shocknames = trad_signs$shocknames, dates = narr_restr$dates, lags = lag)
-  
-  ret 
-  }
+
+  ret <- list(
+    trad = trad_m, narr = narr_m, trad_restrict = trad_signs, narr_restrict = narr_restr,
+    elasticity_bounds = elasticitybounds, savednarrative = dim(narr_m$IRFS)[1], data = data,
+    varnames = colnames(data), shocknames = trad_signs$shocknames, dates = narr_restr$dates, lags = lag
+  )
+
+  ret
+}

@@ -29,6 +29,3 @@ A ggplot object
 \description{
 Plot IRFs for traditional and narrative restrictions
 }
-\examples{
-
-}

@@ -6,6 +6,6 @@
 #' @export
 #'
 #' @examples
-narrsign_print <- function(narrSign_model = NULL){
-  
+narrsign_print <- function(narrSign_model = NULL) {
+
 }
