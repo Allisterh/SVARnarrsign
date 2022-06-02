@@ -19,7 +19,7 @@ ebr_setup <- function(shock_names = NULL,
                       second_variable = NULL,
                       horizon = NULL,
                       bounds = NULL) {
-  ebr <- tibble(shock_names, first_variable, second_variable, horizon, bounds)
+  ebr <- dplyr::tibble(shock_names, first_variable, second_variable, horizon, bounds)
 
   ebr
 }

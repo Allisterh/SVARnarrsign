@@ -16,7 +16,7 @@ ebr_accept <- function(EBR = NULL,
     return(check)
   }
 
-  E <- matrix(0, nrow(EBR), 1)
+  E <- matrix(NA, nrow(EBR), 1)
 
   for (b in 1:nrow(EBR)) {
     q <- Q[, which(allshocknames == EBR$shock_names[b]), drop = FALSE]

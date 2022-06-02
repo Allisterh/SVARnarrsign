@@ -143,7 +143,7 @@ tradsign_estim <-
         RWZ <- prod(RWZ)
 
 
-        q <- Q[, 1, drop = FALSE]
+        #q <- Q[, 1, drop = FALSE]
 
         ebr_check <- ebr_accept(EBR, impulses, Q, allshocknames = trad_shocknames)
 
