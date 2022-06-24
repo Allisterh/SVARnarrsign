@@ -7,7 +7,7 @@
 #'  restrictions should be considered
 #' @param nkeep Amount of draws to keep for the traditional sign restrictions
 #' @param draws Amount of draws to make for parameter and covariance matrix
-#' @param subdraws Amount of subdraws for orhogotnal matrix Q for each
+#' @param subdraws Amount of subdraws for orthogonal matrix Q for each
 #' parameter matrix and covariance matrix
 #' @param elasticitybounds An object as output from ebr_setup. NULL if no elasticity
 #' bound should be considered
@@ -26,7 +26,8 @@ narrsign <- function(data = NULL,
                      elasticitybounds = NULL,
                      const = TRUE,
                      steps = 30,
-                     narrweightdraws = 1000) {
+                     narrweightdraws = 1000,
+                     oil_production = NULL) {
   trad_m <- tradsign_estim(
     Y = data,
     nlags = lags,
@@ -38,7 +39,7 @@ narrsign <- function(data = NULL,
     EBR = elasticitybounds,
     nkeep = nkeep,
     # oil prod for kilian like restriction
-    oil_production = NULL
+    oil_production = oil_production
   )
   
 
