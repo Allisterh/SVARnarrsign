@@ -15,7 +15,8 @@
 #'
 #' @examples
 tradsign_estim <-
-  function(Y = NULL, nlags = 4, draws = 200, subdraws = 200, nkeep = 1000, tradsign_setup = NULL, constant = TRUE, steps = 24, EBR = NULL) {
+  function(Y = NULL, nlags = 4, draws = 200, subdraws = 200, nkeep = 1000, tradsign_setup = NULL, constant = TRUE, steps = 24, EBR = NULL,
+           oil_production = NULL) {
     #
     #--- SANITY CHECK ---#
     # sanity.check.reject(Y=Y, nlags=nlags, draws=draws, subdraws=subdraws, nkeep=nkeep, KMIN=KMIN, KMAX=KMAX, constrained=constrained, constant=constant, steps=steps)
@@ -145,7 +146,8 @@ tradsign_estim <-
 
         #q <- Q[, 1, drop = FALSE]
 
-        ebr_check <- ebr_accept(EBR, impulses, Q, allshocknames = trad_shocknames)
+        ebr_check <- ebr_accept(EBR, impulses, Q, allshocknames = trad_shocknames,
+                                data = Y, worldprod = oil_production)
 
 
         #
