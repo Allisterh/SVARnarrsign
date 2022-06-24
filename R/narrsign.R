@@ -36,8 +36,11 @@ narrsign <- function(data = NULL,
     constant = const,
     steps = steps,
     EBR = elasticitybounds,
-    nkeep = nkeep
+    nkeep = nkeep,
+    # oil prod for kilian like restriction
+    oil_production = NULL
   )
+  
 
   if (!is.null(narr_restr)) {
     # always removing the last entry as this is returned as NA for some reaosn
@@ -53,11 +56,20 @@ narrsign <- function(data = NULL,
     )
   }
 
-  ret <- list(
-    trad = trad_m, narr = narr_m, trad_restrict = trad_signs, narr_restrict = narr_restr,
-    elasticity_bounds = elasticitybounds, savednarrative = dim(narr_m$IRFS)[1], data = data,
-    varnames = colnames(data), shocknames = trad_signs$shocknames, dates = narr_restr$dates, lags = lag
-  )
+  if (!is.null(narr_restr)){
+    ret <- list(
+      trad = trad_m, narr = narr_m, trad_restrict = trad_signs, narr_restrict = narr_restr,
+      elasticity_bounds = elasticitybounds, savednarrative = dim(narr_m$IRFS)[1], data = data,
+      varnames = colnames(data), shocknames = trad_signs$shocknames, dates = narr_restr$dates, lags = lag
+    )
+  } else {
+    ret <- list(
+      trad = trad_m, narr = NULL, trad_restrict = trad_signs, narr_restrict = NULL,
+      elasticity_bounds = elasticitybounds, savednarrative = NULL, data = data,
+      varnames = colnames(data), shocknames = trad_signs$shocknames, dates = NULL, lags = lag
+    )
+  }
+
 
   ret
 }
