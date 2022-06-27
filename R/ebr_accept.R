@@ -21,7 +21,7 @@ ebr_accept <- function(EBR = NULL,
   # here different way to check elasticities in case we want to do a kilian 2014
   # like model
   if (EBR == "kilian_murphy"){
-    ProdMBPM <- worldprod*30/1000
+    ProdMBPM <- worldprod*(30/1000)
     OECDCrudeDif <- data[,4]
     
     E <- matrix(NA,3,1)
@@ -34,7 +34,7 @@ ebr_accept <- function(EBR = NULL,
     ik_2 <- impulses[1, , ] %*% q
     ik_2 <- ik_2[3, ]
     elasticity <- ik_1 / ik_2
-    E[1, ] <- elasticity < 0.0258
+    E[1, ] <- elasticity < 0.04
     
     
     q <- Q[, which(allshocknames == "Speculative demand shock"), drop = FALSE]
@@ -45,7 +45,7 @@ ebr_accept <- function(EBR = NULL,
     ik_2 <- ik_2[3, ]
     
     elasticity <- ik_1 / ik_2
-    E[2, ] <- elasticity < 0.0258
+    E[2, ] <- elasticity < 0.04
     
     
     q <- Q[, which(allshocknames == "Flow supply shock"), drop = FALSE]
@@ -59,7 +59,7 @@ ebr_accept <- function(EBR = NULL,
     ik_3 <- impulses[1, , ] %*% q
     ik_3 <- ik_3[3, ]
     
-    FlowNew=ProdMBPM*(1+ik_1/100)-mean(OECDCrudeDif)-ik_3
+    FlowNew=ProdMBPM*(1+(ik_1/100))-mean(OECDCrudeDif)-ik_2
     Flow=ProdMBPM-mean(OECDCrudeDif)
     PctChange=100*(FlowNew-Flow)/Flow
     ElasUseSeries=PctChange/ik_3
@@ -67,6 +67,7 @@ ebr_accept <- function(EBR = NULL,
     
     
     elasticity <- mean(ElasUseSeries) <= 0
+    #elasticity <- TRUE
     
     E[3, ] <- elasticity 
     

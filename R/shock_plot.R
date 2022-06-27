@@ -27,8 +27,13 @@ shock_plot <- function(narrSign_model = NULL,
   shocks <- mod$SHOCKS[, , whichShock]
   shocks <- apply(shocks, 2, quantile, probs = c(prob))
 
-  shocks <- data.frame(dates = dates[-c(1:lag), ], shocks = shocks)
-
+  dates <- 1:564
+  
+  #shocks <- data.frame(dates = dates[-c(1:lag), ], shocks = shocks)
+  
+  shocks <- data.frame(dates = dates, shocks = shocks)
+  
+  
   ggplot(shocks, aes(x = dates, y = shocks)) +
     geom_line() +
     ylab(paste("Shock:", narrSign_model$shocknames[whichShock])) +

@@ -152,6 +152,7 @@ tradsign_estim <-
 
         #
         if (RWZ == 1 & ebr_check == TRUE) {
+          print("We accepted a draw. Yay.")
           for (j in 1:nstep) {
             imp[j, , ] <- t(impulses[j, , ] %*% Q) # original
             # imp[j,,] <- t(impulses[j,,]%*%t(Q)) # first try. Does not seem to be it
