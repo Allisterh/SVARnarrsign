@@ -59,7 +59,7 @@ ebr_accept <- function(EBR = NULL,
     ik_3 <- impulses[1, , ] %*% q
     ik_3 <- ik_3[3, ]
     
-    FlowNew=ProdMBPM*(1+(ik_1/100))-mean(OECDCrudeDif)-ik_2
+    FlowNew=ProdMBPM*(1+ik_1)-mean(OECDCrudeDif)-ik_2
     Flow=ProdMBPM-mean(OECDCrudeDif)
     PctChange=100*(FlowNew-Flow)/Flow
     ElasUseSeries=PctChange/ik_3
