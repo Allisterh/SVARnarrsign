@@ -7,6 +7,8 @@
 #' @return A ggplot object
 #' @export
 #'
+#' @import ggplot2
+#' 
 #' @examples
 HD_plot <- function(narrSign_model = NULL,
                     whichShock = NULL,

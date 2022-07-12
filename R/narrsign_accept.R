@@ -13,7 +13,7 @@
 #'
 #' @return
 #'
-#' @examples
+
 narrsign_accept <- function(narrative_restr,
                             irfs,
                             shocks,
@@ -111,7 +111,7 @@ narrsign_accept <- function(narrative_restr,
     if (check) {
       check_simulated <- matrix(NaN, ndrawweights, 1)
       for (rep in 1:ndrawweights) {
-        fake_shocks <- matrix(rnorm((Time - p) * n), Time - p, n)
+        fake_shocks <- matrix(stats::rnorm((Time - p) * n), Time - p, n)
 
         if (!all(Ns == 0)) {
           check_narrative_sign <- as.numeric(sum(narrative_restrictions == sign(fake_shocks[Ns != 0])) == length(Ns[Ns != 0]))

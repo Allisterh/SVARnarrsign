@@ -3,7 +3,9 @@
 #'
 #' @param narrSign_model A model object of class narrsign
 #' @param whichShock A string with the name of shock to be plotted
-
+#' 
+#' @import ggplot2
+#' 
 #' @return
 #' @export
 #'

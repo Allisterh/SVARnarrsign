@@ -4,6 +4,9 @@
 #' @param whichShock A string with the name of shock to be plotted
 #' @param narr A Boolean whether shocks identified by narrative restrictions
 #' should be used. If False only traditional
+#' 
+#'
+#' @import ggplot2
 #'
 #' @return
 #' @export

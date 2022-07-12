@@ -5,6 +5,8 @@
 #' narrSign_model
 #' @param cumulative A Boolean whether cumulative IRFs should be plotted
 #'
+#' @import ggplot2
+#'
 #' @return A ggplot object
 #' @export
 #'

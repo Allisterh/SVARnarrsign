@@ -13,7 +13,8 @@ tradsign_estim(
   tradsign_setup = NULL,
   constant = TRUE,
   steps = 24,
-  EBR = NULL
+  EBR = NULL,
+  oil_production = NULL
 )
 }
 \arguments{

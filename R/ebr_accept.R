@@ -6,7 +6,7 @@
 #'
 #' @return A Boolean whether elasticity bounds are fulfilled
 #'
-#' @examples
+
 ebr_accept <- function(EBR = NULL,
                        impulses = NULL,
                        Q = NULL,

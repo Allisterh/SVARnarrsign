@@ -4,7 +4,14 @@
 \alias{ebr_accept}
 \title{Check whether elasticity bounds hold}
 \usage{
-ebr_accept(EBR = NULL, impulses = NULL, Q = NULL, allshocknames)
+ebr_accept(
+  EBR = NULL,
+  impulses = NULL,
+  Q = NULL,
+  allshocknames,
+  worldprod = NULL,
+  data = data
+)
 }
 \arguments{
 \item{EBR}{Object of ebt_setup}

@@ -13,7 +13,7 @@
 #' @return
 #' @export
 #'
-#' @examples
+
 tradsign_estim <-
   function(Y = NULL, nlags = 4, draws = 200, subdraws = 200, nkeep = 1000, tradsign_setup = NULL, constant = TRUE, steps = 24, EBR = NULL,
            oil_production = NULL) {

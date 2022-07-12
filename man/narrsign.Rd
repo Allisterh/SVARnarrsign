@@ -15,7 +15,8 @@ narrsign(
   elasticitybounds = NULL,
   const = TRUE,
   steps = 30,
-  narrweightdraws = 1000
+  narrweightdraws = 1000,
+  oil_production = NULL
 )
 }
 \arguments{
@@ -32,7 +33,7 @@ restrictions should be considered}
 
 \item{draws}{Amount of draws to make for parameter and covariance matrix}
 
-\item{subdraws}{Amount of subdraws for orhogotnal matrix Q for each
+\item{subdraws}{Amount of subdraws for orthogonal matrix Q for each
 parameter matrix and covariance matrix}
 
 \item{elasticitybounds}{An object as output from ebr_setup. NULL if no elasticity
