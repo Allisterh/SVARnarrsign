@@ -12,3 +12,4 @@ and subsequently the following code.
 ```
 devtools::install_github("aaron-lohmann/SVARnarrsign")
 ```
+Parts of this package are based on code by [VARsignR](https://cran.r-project.org/web/packages/VARsignR/index.html) which I do not let go unmentioned. 
