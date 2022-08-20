@@ -5,7 +5,7 @@
 #' @param narr A Boolean whether shocks identified by narrative restrictions
 #' should be used. If False only traditional
 #'
-#'@import ggplot2
+#' @import ggplot2
 #'
 #' @return A ggplot object
 #' @export
@@ -29,11 +29,10 @@ shock_plot <- function(narrSign_model = NULL,
   shocks <- mod$SHOCKS[, , whichShock]
   shocks <- apply(shocks, 2, quantile, probs = c(prob))
 
-  dates <- 1:564
-  
+
   #shocks <- data.frame(dates = dates[-c(1:lag), ], shocks = shocks)
   
-  shocks <- data.frame(dates = dates, shocks = shocks)
+  shocks <- data.frame(dates = dates[-c(1:lag),], shocks = shocks)
   
   
   ggplot(shocks, aes(x = dates, y = shocks)) +
