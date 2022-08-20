@@ -14,13 +14,14 @@ two_fevd_plot <- function(narrSign_model = NULL,
                           whichShock = NULL,
                           varnames = NULL,
                           type = "median",
-                          bands = c(0.16, 0.84)) {
+                          bands = c(0.16, 0.84),
+                          steps = dim(narrSign_model$trad$IRFS)[2]) {
   if (is.null(varnames)) {
     varnames <- narrSign_model$varnames
   }
 
-  IRFS <- narrSign_model$trad$FEVDS[, , whichShock, ]
-  IRFS_nar <- narrSign_model$narr$FEVDS_narr[, , whichShock, ]
+  IRFS <- narrSign_model$trad$FEVDS[, 1:steps, whichShock, ]
+  IRFS_nar <- narrSign_model$narr$FEVDS_narr[, 1:steps, whichShock, ]
   irfdraws <- IRFS
   irfdraws_nar <- IRFS_nar
 

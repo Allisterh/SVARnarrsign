@@ -18,13 +18,14 @@ two_irf_plot <- function(narrSign_model = NULL,
                          scaling_nar = 1,
                          varnames = NULL,
                          type = "median",
-                         bands = c(0.16, 0.84)) {
+                         bands = c(0.16, 0.84),
+                         steps = dim(narrSign_model$trad$IRFS)[2] ) {
   if (is.null(varnames)) {
     varnames <- narrSign_model$varnames
   }
 
-  IRFS <- narrSign_model$trad$IRFS[, , whichShock, ]
-  IRFS_nar <- narrSign_model$narr$IRFS_narr[, , whichShock, ]
+  IRFS <- narrSign_model$trad$IRFS[,1:steps , whichShock, ]
+  IRFS_nar <- narrSign_model$narr$IRFS_narr[,1:steps , whichShock, ]
   irfdraws <- IRFS
   irfdraws_nar <- IRFS_nar
 
@@ -131,8 +132,9 @@ two_irf_plot <- function(narrSign_model = NULL,
         geom_line(col = "#00BFC4", size = 1.5) +
         ylab(varnames[i]) +
         geom_line(aes(x = horizon, y = rep(0, length(horizon)))) +
-        geom_ribbon(aes(ymin = impt_nar[i, , 2], ymax = impt_nar[i, , 3]), alpha = 0.4, fill = "#F8766D") +
+        geom_ribbon(aes(ymin = impt_nar[i, , 2], ymax = impt_nar[i, , 3]), alpha = 0.8, fill = "#F8766D") +
         geom_line(aes(x = horizon, y = impt_nar[i, , 1]), col = "#F8766D", size = 1.5)
+        
     })
   }
 
