@@ -10,6 +10,7 @@
 #' @param ndrawweights A numeric with the amount of draws for the fake shocks
 #' @param data Data used to estimate the model
 #' @param lag A numeric with lag used in the system
+#' @param fevds 
 #'
 #' @return
 #'
