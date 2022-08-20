@@ -19,7 +19,8 @@ irf_plot <- function(narrSign_model = NULL,
                      type = "median",
                      bands = c(0.16, 0.84),
                      scaling = 1,
-                     varnames = NULL) {
+                     varnames = NULL,
+                     steps = dim(narrSign_model$trad$IRFS)[2]) {
   if (narr == TRUE) {
     mod <- narrSign_model$narr
   } else {
@@ -30,7 +31,7 @@ irf_plot <- function(narrSign_model = NULL,
     varnames <- narrSign_model$varnames
   }
 
-  IRFS <- mod$IRFS[, , whichShock, ]
+  IRFS <- mod$IRFS[,1:steps , whichShock, ]
   irfdraws <- IRFS
 
   goodresp <- IRFS
