@@ -2,27 +2,26 @@
 % Please edit documentation in R/ebr_accept.R
 \name{ebr_accept}
 \alias{ebr_accept}
-\title{Check whether elasticity bounds hold}
+\title{Check whether elasticity bounds are satisfied}
 \usage{
-ebr_accept(
-  EBR = NULL,
-  impulses = NULL,
-  Q = NULL,
-  allshocknames,
-  worldprod = NULL,
-  data = data
-)
+ebr_accept(EBR = NULL, impulses = NULL, Q = NULL, allshocknames, data = data)
 }
 \arguments{
-\item{EBR}{Object of ebt_setup}
+\item{EBR}{Object of ebr_setup.}
 
-\item{impulses}{Computed impulses based on parameter draws}
+\item{impulses}{Computed impulses based on parameter draws.}
 
-\item{Q}{A orthogonal matrix}
+\item{Q}{An orthogonal matrix.}
+
+\item{allshocknames}{Vector of all shocknames which are identified in the
+the system.}
+
+\item{data}{}
 }
 \value{
 A Boolean whether elasticity bounds are fulfilled
 }
 \description{
-Check whether elasticity bounds hold
+This function take the response of the first variable for the given horizon
+and divides it by the response of the second variable. Then this
 }

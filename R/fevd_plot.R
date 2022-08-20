@@ -8,7 +8,7 @@
 #'
 #' @import ggplot2
 #'
-#' @return
+#' @return A ggplot object which displays the FEVD for a specific shock.
 #' @export
 #'
 #' @examples
