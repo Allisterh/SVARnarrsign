@@ -5,10 +5,12 @@
 #'
 #' @param Bh A draw of the parameter matrix
 #' @param swish A draw of the covariance matrix
-#' @param nn A vector containging the amount of variables in the sytem, number
+#' @param nn A vector containing the amount of variables in the system, number
 #' of lags and prediction horizon.
 #'
 #' @return A matrix with impulse responses
+#' 
+#' @references Code based on compute_impulses function of package VARsigninR
 
 
 compute_impulses <-
@@ -57,5 +59,6 @@ compute_impulses <-
       M[1:nvar, ] <- Mtem
       imf[tt, ] <- t(as.vector(Mtem))
     }
-    return(imf)
+    # return the impulse responses
+    imf
   }
