@@ -25,9 +25,6 @@ should hold}
 
 \item{bounds}{A vectir of numerics which specifiy the elasticity bounds}
 }
-\value{
-
-}
 \description{
 This function sets up the elasticity bound restrictions.
 }

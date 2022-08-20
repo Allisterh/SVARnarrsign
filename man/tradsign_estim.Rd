@@ -36,9 +36,6 @@ tradsign_estim(
 
 \item{EBR}{An object of function ebr_setup}
 }
-\value{
-
-}
 \description{
 Title
 }

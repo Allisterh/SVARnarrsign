@@ -18,9 +18,8 @@ narrsign_accept(narrative_restr, irfs, shocks, ndrawweights, data, lag, fevds)
 \item{data}{Data used to estimate the model}
 
 \item{lag}{A numeric with lag used in the system}
-}
-\value{
 
+\item{fevds}{}
 }
 \description{
 Checks narrative restrictions and reweights them accordingly.

@@ -1,8 +1,14 @@
-#' Check whether elasticity bounds hold
+#' Check whether elasticity bounds are satisfied
+#' 
+#' This function take the response of the first variable for the given horizon
+#' and divides it by the response of the second variable. Then this 
 #'
-#' @param EBR Object of ebt_setup
-#' @param impulses Computed impulses based on parameter draws
-#' @param Q A orthogonal matrix
+#' @param EBR Object of ebr_setup. 
+#' @param impulses Computed impulses based on parameter draws. 
+#' @param Q An orthogonal matrix. 
+#' @param allshocknames Vector of all shocknames which are identified in the 
+#' the system.
+#' @param data 
 #'
 #' @return A Boolean whether elasticity bounds are fulfilled
 #'
@@ -11,88 +17,43 @@ ebr_accept <- function(EBR = NULL,
                        impulses = NULL,
                        Q = NULL,
                        allshocknames,
-                       worldprod = NULL,
                        data = data) {
+  # If no elasticity bounds need to be considered. Exit function here
   if (is.null(EBR)) {
     check <- 1
     return(check)
   }
   
-  # here different way to check elasticities in case we want to do a kilian 2014
-  # like model
-  #if (EBR == "kilian_murphy"){
-  #  ProdMBPM <- worldprod*(30/1000)
-  #  OECDCrudeDif <- data[,4]
-  #  
-  #  E <- matrix(NA,3,1)
-  #  
-  #  q <- Q[, which(allshocknames == "Flow demand shock"), drop = FALSE]
-  #  
-  #  ik_1 <- impulses[1, , ] %*% q
-  #  ik_1 <- ik_1[1, ]
-  #  
-  #  ik_2 <- impulses[1, , ] %*% q
-  #  ik_2 <- ik_2[3, ]
-  #  elasticity <- ik_1 / ik_2
-  #  E[1, ] <- elasticity < 0.04
-  #  
-  #  
-  #  q <- Q[, which(allshocknames == "Speculative demand shock"), drop = FALSE]
-  #  ik_1 <- impulses[1, , ] %*% q
-  #  ik_1 <- ik_1[1, ]
-  #  
-  #  ik_2 <- impulses[1, , ] %*% q
-  #  ik_2 <- ik_2[3, ]
-  #  
-  #  elasticity <- ik_1 / ik_2
-  #  E[2, ] <- elasticity < 0.04
-  #  
-  #  
-  #  q <- Q[, which(allshocknames == "Flow supply shock"), drop = FALSE]
-  #  
-  #  ik_1 <- impulses[1, , ] %*% q
-  #  ik_1 <- ik_1[1, ]
-  #  
-  #  ik_2 <- impulses[1, , ] %*% q
-  #  ik_2 <- ik_2[4, ]
-  #  
-  #  ik_3 <- impulses[1, , ] %*% q
-  #  ik_3 <- ik_3[3, ]
-  #  
-  #  FlowNew=ProdMBPM*(1+ik_1)-mean(OECDCrudeDif)-ik_2
-  #  Flow=ProdMBPM-mean(OECDCrudeDif)
-  #  PctChange=100*(FlowNew-Flow)/Flow
-  #  ElasUseSeries=PctChange/ik_3
-    
-    
-    
-   # elasticity <- mean(ElasUseSeries) <= 0
-  #  #elasticity <- TRUE
-    
-  #  E[3, ] <- elasticity 
-    
-    
-  #  check <- prod(E)
-  #  
-  #  return(check)
-  #}
 
+  # Define elasticity matrix which stores which of the elasticity bounds
+  # are satisfieed
   E <- matrix(NA, nrow(EBR), 1)
 
   for (b in 1:nrow(EBR)) {
+    # Pick the column which corresponds to the shock in question
     q <- Q[, which(allshocknames == EBR$shock_names[b]), drop = FALSE]
-
+    
+    # compute impulse response
     ik_1 <- impulses[EBR$horizon[b], , ] %*% q
+    # extract value for the first relevant variable
     ik_1 <- ik_1[EBR$first_variable[b], ]
 
+    # compute impulse response
     ik_2 <- impulses[EBR$horizon[b], , ] %*% q
+    # extract value for the second relevant variable
     ik_2 <- ik_2[EBR$second_variable[b], ]
 
+    # compute elasticity as share of response of first variable divided by the 
+    # response of the second variable
     elasticity <- ik_1 / ik_2
+    
+    # Check whether the computed elasticity falls into the respective bound and
+    # save results as a boolean value
     E[b, ] <- elasticity < EBR$bounds[b]
   }
-
+  
+  # Check whether all of the elasticities fall into their respective bounds
   check <- prod(E)
 
-  return(check)
+  check
 }

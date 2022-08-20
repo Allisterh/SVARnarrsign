@@ -19,3 +19,8 @@ A ggplot object
 \description{
 Plot historical decomposition for a specific date
 }
+\examples{
+\dontrun{
+HD_plot(model, whichShock = 1, data = "2020-04-01")
+}
+}

@@ -12,7 +12,8 @@ irf_plot(
   type = "median",
   bands = c(0.16, 0.84),
   scaling = 1,
-  varnames = NULL
+  varnames = NULL,
+  steps = dim(narrSign_model$trad$IRFS)[2]
 )
 }
 \arguments{

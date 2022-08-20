@@ -21,9 +21,6 @@ fevd_plot(
 \item{narr}{A Boolean whether shocks identified by narrative restrictions
 should be used. If False only traditional}
 }
-\value{
-
-}
 \description{
 Plot the forecast error variance decompositions
 }

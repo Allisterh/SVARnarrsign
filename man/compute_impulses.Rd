@@ -11,7 +11,7 @@ compute_impulses(Bh, swish, nn)
 
 \item{swish}{A draw of the covariance matrix}
 
-\item{nn}{A vector containging the amount of variables in the sytem, number
+\item{nn}{A vector containing the amount of variables in the system, number
 of lags and prediction horizon.}
 }
 \value{
@@ -20,4 +20,7 @@ A matrix with impulse responses
 \description{
 Taking the draws of parameter matrix and covariance matrix and compute impulse
 responses for a predefined number of steps.
+}
+\references{
+Code based on compute_impulses function of package VARsigninR
 }

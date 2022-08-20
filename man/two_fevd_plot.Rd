@@ -10,16 +10,14 @@ two_fevd_plot(
   whichShock = NULL,
   varnames = NULL,
   type = "median",
-  bands = c(0.16, 0.84)
+  bands = c(0.16, 0.84),
+  steps = dim(narrSign_model$trad$IRFS)[2]
 )
 }
 \arguments{
 \item{narrSign_model}{A model object of class narrsign}
 
 \item{whichShock}{A string with the name of shock to be plotted}
-}
-\value{
-
 }
 \description{
 Plot the forecast error variance decompositions for both traditional and narrative

@@ -6,16 +6,14 @@
 \title{Uhlig replication data}
 \format{
 A tibble with X Rows and 7 variables;
-
-@source replication data Diaz Ramirez et al. (2018
+}
+\source{
+replication data Diaz Ramirez et al. (2018)
 }
 \usage{
 uhlig
 }
 \description{
 A dataset containing one column of dates and 6 variables.
-}
-\references{
-
 }
 \keyword{datasets}
