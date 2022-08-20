@@ -10,6 +10,9 @@
 #' @import ggplot2
 #' 
 #' @examples
+#' \dontrun{
+#' HD_plot(model, whichShock = 1, data = "2020-04-01")
+#' }
 HD_plot <- function(narrSign_model = NULL,
                     whichShock = NULL,
                     date = NULL) {
