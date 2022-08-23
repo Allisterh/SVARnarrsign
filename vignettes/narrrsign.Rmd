@@ -1,5 +1,5 @@
 ---
-title: "narrrsign"
+title: "SVARnarrsign Package vignette"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{narrrsign}
@@ -14,6 +14,23 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(SVARnarrsign)
-```
+## Introduction
+
+The identification of SVAR models is an ongoing research issue. Ev
+
+
+## Installation
+
+## Usage
+
+### Setup of restrictions
+
+### Executing the core function
+
+### Acessing the results
+
+
+## A model of the crude oil market (Kilian 2009)
+
+
+

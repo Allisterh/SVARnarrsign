@@ -15,8 +15,7 @@ narrsign(
   elasticitybounds = NULL,
   const = TRUE,
   steps = 30,
-  narrweightdraws = 1000,
-  oil_production = NULL
+  narrweightdraws = 1000
 )
 }
 \arguments{
@@ -38,9 +37,16 @@ parameter matrix and covariance matrix}
 
 \item{elasticitybounds}{An object as output from ebr_setup. NULL if no elasticity
 bound should be considered}
+
+\item{const}{Boolean whether constant should be considered}
+
+\item{steps}{Amount of steps for which to compute the impulse responses}
+
+\item{narrweightdraws}{Amount of draws for the importance sampler}
 }
 \value{
-A list with otuputs
+A list with outputs differentiating between model identified with
+traditional sign restrictions and narrative sign restictions.
 }
 \description{
 Estimate a SVAR model with narrative restrictions

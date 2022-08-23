@@ -11,8 +11,13 @@
 #' parameter matrix and covariance matrix
 #' @param elasticitybounds An object as output from ebr_setup. NULL if no elasticity
 #' bound should be considered
+#' @param const Boolean whether constant should be considered
+#' @param steps Amount of steps for which to compute the impulse responses
+#' @param narrweightdraws Amount of draws for the importance sampler
 #'
-#' @return A list with otuputs
+#' @return A list with outputs differentiating between model identified with 
+#' traditional sign restrictions and narrative sign restictions.
+#' 
 #' @export
 #'
 #' @examples
@@ -26,8 +31,7 @@ narrsign <- function(data = NULL,
                      elasticitybounds = NULL,
                      const = TRUE,
                      steps = 30,
-                     narrweightdraws = 1000,
-                     oil_production = NULL) {
+                     narrweightdraws = 1000) {
   trad_m <- tradsign_estim(
     Y = data,
     nlags = lags,

@@ -21,8 +21,7 @@ Imports:
     grid,
     gridExtra,
     mvnfast,
-    stats,
-    utils
+    stats
 URL: https://github.com/aaron-lohmann/SVARnarrsign
 BugReports: https://github.com/aaron-lohmann/SVARnarrsign/issues
 Suggests: 
