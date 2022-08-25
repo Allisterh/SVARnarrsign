@@ -5,7 +5,7 @@
 #' narrSign_model
 #' @param cumulative A Boolean whether cumulative IRFs should be plotted
 #'
-#' @import ggplot2
+#' @import ggplot2 grid
 #'
 #' @return A ggplot object
 #' @export
@@ -138,5 +138,5 @@ two_irf_plot <- function(narrSign_model = NULL,
     })
   }
 
-  gridExtra::grid.arrange(grobs = plot_list, top = grid::textGrob(paste("Shock:", narrSign_model$shocknames[whichShock])), gp = gird::gpar(fontsize = 20, font = 3))
+  gridExtra::grid.arrange(grobs = plot_list, top = textGrob(paste("Shock:", narrSign_model$shocknames[whichShock])), gp = grid::gpar(fontsize = 20, font = 3))
 }

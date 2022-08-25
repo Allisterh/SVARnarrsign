@@ -8,7 +8,7 @@
 #' @param Q An orthogonal matrix. 
 #' @param allshocknames Vector of all shocknames which are identified in the 
 #' the system.
-#' @param data 
+#' @param data A data frame or tibble containg the data
 #'
 #' @return A Boolean whether elasticity bounds are fulfilled
 #'

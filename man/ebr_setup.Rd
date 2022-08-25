@@ -23,7 +23,7 @@ placed.}
 \item{horizon}{A vector of horizons for which elasticity bound restrictions
 should hold}
 
-\item{bounds}{A vectir of numerics which specifiy the elasticity bounds}
+\item{bounds}{A vector of numerics which specify the elasticity bounds}
 }
 \value{
 A tibble which contains the elasticity bound restrictions.

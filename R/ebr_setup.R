@@ -8,7 +8,7 @@
 #' @param second_variable A vector of variables names of length shock names
 #' @param horizon A vector of horizons for which elasticity bound restrictions
 #' should hold
-#' @param bounds A vectir of numerics which specifiy the elasticity bounds
+#' @param bounds A vector of numerics which specify the elasticity bounds
 #'
 #' @return A tibble which contains the elasticity bound restrictions.
 #' 

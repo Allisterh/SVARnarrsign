@@ -147,7 +147,7 @@ tradsign_estim <-
         #q <- Q[, 1, drop = FALSE]
 
         ebr_check <- ebr_accept(EBR, impulses, Q, allshocknames = trad_shocknames,
-                                data = Y, worldprod = oil_production)
+                                data = Y)
 
 
         #

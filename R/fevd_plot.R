@@ -78,5 +78,5 @@ fevd_plot <- function(narrSign_model = NULL,
     })
   }
 
-  gridExtra::grid.arrange(grobs = plot_list, top = grid::textGrob(paste("Shock:", narrSign_model$shocknames[whichShock])), gp = gird::gpar(fontsize = 20, font = 3))
+  gridExtra::grid.arrange(grobs = plot_list, top = textGrob(paste("Shock:", narrSign_model$shocknames[whichShock])), gp = grid::gpar(fontsize = 20, font = 3))
 }

@@ -1,9 +1,9 @@
 #' Plot structural shocks for all identified shocks
 #'
 #' @param narrSign_model A model object of class narrsign
-#' @param whichShock A string with the name of shock to be plotted
-#' @param narr A Boolean whether shocks identified by narrative restrictions
-#' should be used. If False only traditional
+#' @param prob Argument for quantile function 
+#' @param whichShock A string with the name of shock to be plotted or a numeric
+#' with the position of the shock within the system
 #'
 #' @return A ggplot object
 #' @export

@@ -7,6 +7,8 @@
 #' @param xdata External data. (Not supported in narrSign package)
 #' @param const A Boolean whether to include a constant in the model
 #' @param breaks Breaks (Not supoerted in narrSign package)
+#' 
+#' @import stats
 #'
 #' @return A list containing paremeter, covariance, residuals, singularity check
 #'

@@ -16,7 +16,7 @@ ebr_accept(EBR = NULL, impulses = NULL, Q = NULL, allshocknames, data = data)
 \item{allshocknames}{Vector of all shocknames which are identified in the
 the system.}
 
-\item{data}{}
+\item{data}{A data frame or tibble containg the data}
 }
 \value{
 A Boolean whether elasticity bounds are fulfilled
